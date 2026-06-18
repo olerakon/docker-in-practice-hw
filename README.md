@@ -99,7 +99,7 @@ build
 *.egg-info
 ```
 Собрал образ и запустил контейнер
-```
+```bash
 docker build -f Dockerfile.python -t shvirtd-python:latest
 docker run --rm -d --name test-python -p 5000:5000 shvirtd-python:latest
 ```
@@ -133,7 +133,7 @@ docker run --rm -d --name test-python -p 5000:5000 shvirtd-python:latest
 ### Решение
 
 Созданный файл `compose.yaml`
-```
+```yaml
 include:
   - proxy.yaml
 
@@ -184,7 +184,7 @@ volumes:
 ```
 
 Запуск и ответ сервиса
-```
+```bash
 docker compose up -d --build
 docker compose ps
 curl -L http://127.0.0.1:8090
@@ -195,7 +195,7 @@ curl -L http://127.0.0.1:8090
 ![3.2](/3.2.png)
 
 Подключение к БД 
-```
+```bash
 docker exec -ti db mysql -uroot -pYtReWq4321
 ```
 ```sql
@@ -226,7 +226,7 @@ SELECT * from requests LIMIT 10;
 ![4](/4.png)
 
 Написал скрипт `deploy.sh` для клонирования моего репозитория и подьема инфраструктуры.
-```
+```bash
 #!/bin/bash
 
 echo "=== Запуск деплоя ==="
@@ -289,3 +289,12 @@ https://github.com/olerakon/shvirtd-example-python/tree/main
 ## Задача 6
 Скачайте docker образ ```hashicorp/terraform:latest``` и скопируйте бинарный файл ```/bin/terraform``` на свою локальную машину, используя dive и docker save.
 Предоставьте скриншоты  действий .
+
+### Решени
+
+С помощью утилиты dive и поиска обнаружил и протестировал бинарный файл terraform
+
+![6](/6.png)
+
+![6.1](/6.1.png)
+
